@@ -23,17 +23,20 @@
         <% search_facade.followers.each do |follower|%>
             <p><%= link_to follower.name, follower.url %>
             <% if follower.in_data %>
-              <%=  button_to "Add Friend", "/friendships/#{follower.uid}", method: :post %></p>
-            <% end %>
+              <%=  button_to "Add Friend", "/friendships/#{follower.uid}", method: :post %>
+            <% end %></p>
         <% end %>
       </section>
     <% end %>
-    <% if current_user && search_facade.followers %>
+    <% if current_user && search_facade.following %>
       <section class="following">
       <h3>Total People Followed: <%= search_facade.following.length %> </h3>
       <h3>Following:  </h3>
         <% search_facade.following.each do |following|%>
             <p><%= link_to following.name, following.url %> </p>
+            <% if following.in_data %>
+              <%=  button_to "Add Friend", "/friendships/#{following.uid}", method: :post %>
+            <% end %></p>
         <% end %>
       </section>
     <% end %>
