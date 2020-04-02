@@ -20,7 +20,7 @@
         <% end %>
       </div>
       <nav>
-        <%= link_to "Sign Up", "/auth/github" %>
+        <%= link_to "Sign Up", github_login_path %>
         <% if current_user && current_user.github_token %>
           <p><%= link_to "Github", "/dashboard" %></p>
         <%end%> 
